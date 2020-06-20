@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block head %}
+<title>Notes</title>
+{% endblock %}
+
+{% block body %}
+<h1>Store your todo list</h1>
+<hr>
+<form action="/notes/update/{{ note.id }}" method="POST">
+
+    Title:<input type="text" name="title" id="title" value="{{ note.title }}">
+        <br>
+    Lists:<textarea name="content" id="content" rows="8" cols="20">{{ note.content }}</textarea>
+        <br>
+        <input type="submit" value="save">
+        <a href='/notes'>Back</a>
+
+
+</form>
+
+{% endblock %}

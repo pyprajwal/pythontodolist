@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+{% block head %}
+<title>Notes</title>
+{% endblock %}
+
+{% block body %}
+<h1>Store your todo list</h1>
+<br>
+<a href='/'>Home</a>
+<hr>
+<form action="/notes" method="POST">
+
+    Title:<input type="text" name="title" id="title" placeholder="Enter Title" aria-label="Enter Title">
+        <br>
+    <br>
+    <textarea name="content" id="content" placeholder="Enter Lists" rows="10" cols="30"></textarea>
+        <br>
+        <input type="submit" value="submit">
+
+
+</form>
+
+<hr>
+    {% for note in notes %}
+        <h2>{{ note.title }}</h2>
+        <p>{{ note.date_posted }}</p>
+        <p>{{ note.content }}</p>
+        <br>
+        <a href="/notes/delete/{{note.id}}">delete</a>
+         <a href='/notes/update/{{note.id}}'>Edit</a>
+
+    {% endfor %}
+<br>
+
+   {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
